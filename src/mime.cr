@@ -16,18 +16,11 @@ module Mime
 
   private def self.map
     @@map ||= begin
-      path = File.join(__DIR__, "..", ".deps", "broofa-node-mime", "types.json")
-
-      unless File.exists?(path)
-        raise "Unable to find type.json file. Ensure deps are installed"
-      end
-
       types = {} of String => String
       extensions = {} of String => String
+      type_defs = File.read(File.join(__DIR__, "types.json"))
 
-      json = File.read(path)
-      data = JSON.parse(json) as Hash(String, JSON::Type)
-      data.each do |type, exts|
+      (JSON.parse(type_defs) as Hash(String, JSON::Type)).each do |type, exts|
         (exts as Array).each do |ext|
           ext = ext as String
           types[ext] = type

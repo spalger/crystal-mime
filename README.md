@@ -1,6 +1,6 @@
 # mime
 
-Mimetypes for [Crystal](https://github.com/manastech/crystal), based on [node-mime](https://github.com/broofa/node-mime).
+Mimetypes for [Crystal](https://github.com/manastech/crystal).
 
 ## Installation
 
@@ -41,7 +41,10 @@ Mime.from_ext("application/javascript")  # "js"
 
 ## Development
 
-Please include tests for any changes
+Type files are pulled from the [node-mime](https://github.com/broofa/node-mime) project. To update the types.json file run
+```sh
+make update_types
+```
 
 ## Contributing
 
