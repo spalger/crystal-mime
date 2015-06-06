@@ -1,0 +1,3 @@
+deps do
+  github "broofa/node-mime"
+end
