@@ -3,6 +3,7 @@ require "json"
 module Mime
 
   def self.from_ext(ext)
+    ext = ext.to_s
     return nil unless map[:types].has_key? ext
     map[:types][ext]
   end

@@ -20,17 +20,18 @@ require "mime"
 
 This simple module maps mime-types and extensions. Read the map using either the `from_ext` or `to_ext` methods.
 
-### `Mime.from_ext(extension as String) : type as String`
-Read the mime-type for an extension. Example:
+### `Mime.from_ext(extension)`
+Read the mime-type for an extension. Returns tye mime-type as a string, or `nil` if the extension is unknown.
 
 ```crystal
 require "mime"
 Mime.from_ext("jpg") # "image/jpeg"
 Mime.from_ext("js")  # "application/javascript"
+Mime.from_ext("jssssss")  # nil
 ```
 
-### `Mime.to_ext(type as String) : ext as String`
-Read the first extension registered for a mime-type.
+### `Mime.to_ext(type)`
+Read the first extension registered for a mime-type. Returns the extension as a string or `nil` is the mime-type is unknown.
 
 ```crystal
 require "mime"

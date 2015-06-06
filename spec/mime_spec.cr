@@ -13,6 +13,10 @@ describe "mime helper" do
       Mime.from_ext("not an extension").should be(nil)
       Mime.from_ext("also not an extension").nil?.should be_true
     end
+
+    it "accepts symbols as extension" do
+      Mime.from_ext(:js).should eq("application/javascript")
+    end
   end
 
   describe "to_ext" do
