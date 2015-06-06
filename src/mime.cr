@@ -3,10 +3,12 @@ require "json"
 module Mime
 
   def self.from_ext(ext)
+    return nil unless map[:types].has_key? ext
     map[:types][ext]
   end
 
-  def self.to_exts(mime)
+  def self.to_ext(mime)
+    return nil unless map[:extensions].has_key? mime
     map[:extensions][mime]
   end
 
@@ -31,11 +33,6 @@ module Mime
           extensions[type] = ext unless extensions.has_key? type
         end
       end
-
-      puts "\n\nTYPES\n\n"
-      puts types.inspect
-      puts "\n\nEXTENSIONS\n\n"
-      puts extensions.inspect
 
       { :types => types, :extensions => extensions }
     end
