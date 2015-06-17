@@ -35,8 +35,8 @@ Read the first extension registered for a mime-type. Returns the extension as a 
 
 ```crystal
 require "mime"
-Mime.from_ext("image/jpeg") # "jpeg"
-Mime.from_ext("application/javascript")  # "js"
+Mime.to_ext("image/jpeg") # "jpeg"
+Mime.to_ext("application/javascript")  # "js"
 ```
 
 ## Development
