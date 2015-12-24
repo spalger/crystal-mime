@@ -13,18 +13,16 @@ module Mime
     map[:extensions][mime]
   end
 
-
   private def self.map
     @@map ||= begin
       types = {} of String => String
       extensions = {} of String => String
       type_defs = File.read(File.join(__DIR__, "types.json"))
 
-      (JSON.parse(type_defs) as Hash(String, JSON::Type)).each do |type, exts|
-        (exts as Array).each do |ext|
-          ext = ext as String
-          types[ext] = type
-          extensions[type] = ext unless extensions.has_key? type
+      JSON.parse(type_defs).each do |type, exts|
+        exts.each do |ext|
+          types[ext.as_s] = type.as_s
+          extensions[type.as_s] = ext.as_s unless extensions.has_key? type.as_s
         end
       end
 
