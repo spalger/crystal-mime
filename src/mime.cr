@@ -27,6 +27,6 @@ module Mime
       end
 
       { :types => types, :extensions => extensions }
-    end
+    end.as(Hash(Symbol, Hash(String, String)))
   end
 end
