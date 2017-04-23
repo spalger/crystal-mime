@@ -27,7 +27,7 @@ module Mime
         end
       end
 
-      { :types => types, :extensions => extensions }
+      {:types => types, :extensions => extensions}
     end
   end
 end
