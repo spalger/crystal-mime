@@ -1,7 +1,7 @@
 require "json"
 
 module Mime
-  @@map : Hash(Symbol, Hash(String, String)) | Nil
+  @@map = {} of Symbol => Hash(String, String)
 
   def self.from_ext(ext)
     ext = ext.to_s
