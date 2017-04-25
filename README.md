@@ -4,12 +4,13 @@ Mimetypes for [Crystal](https://github.com/manastech/crystal).
 
 ## Installation
 
-Add it to `Projectfile`
+Add it to `shard.yml` file
 
 ```crystal
-deps do
-  github "spalger/crystal-mime"
-end
+dependencies:
+  mime:
+    github: spalger/crystal-mime
+    version: ~> 0.1
 ```
 
 ## Usage
