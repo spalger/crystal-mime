@@ -1,8 +1,6 @@
 require "json"
 
 module Mime
-  @@map : Hash(Symbol, Hash(String, String)) | Nil
-
   def self.from_ext(ext)
     ext = ext.to_s
     return nil unless map[:types].has_key? ext
@@ -27,7 +25,7 @@ module Mime
         end
       end
 
-      {:types => types, :extensions => extensions}
-    end
+      { :types => types, :extensions => extensions }
+    end.as(Hash(Symbol, Hash(String, String)))
   end
 end
