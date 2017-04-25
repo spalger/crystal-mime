@@ -1,6 +1,7 @@
 require "json"
 
 module Mime
+  @@map : Hash(Symbol, Hash(String, String)) | Nil
 
   def self.from_ext(ext)
     ext = ext.to_s
@@ -26,7 +27,7 @@ module Mime
         end
       end
 
-      { :types => types, :extensions => extensions }
+      {:types => types, :extensions => extensions}
     end
   end
 end
