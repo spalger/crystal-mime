@@ -4,7 +4,7 @@ require "json"
 module Mime
   class MimeTypesStore
     extend BakedFileSystem
-    bake_file "types.json", File.read("src/types.json")
+    bake_file "types.json", File.read("#{__DIR__}/types.json")
   end
 
   def self.from_ext(ext)
