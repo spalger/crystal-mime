@@ -21,10 +21,10 @@ module Mime
       types = {} of String => String
       extensions = {} of String => String
 
-      JSON.parse(MimeTypesStore.get("types.json")).each do |type, exts|
+      Hash(String, Array(String)).from_json(MimeTypesStore.get("types.json")).each do |type, exts|
         exts.each do |ext|
-          types[ext.as_s] = type.as_s
-          extensions[type.as_s] = ext.as_s unless extensions.has_key? type.as_s
+          types[ext] = type
+          extensions[type] = ext unless extensions.has_key? type
         end
       end
 
